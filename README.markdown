@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 **recaptcha-client-1.0.6-ssl** is a Python module that interfaces with reCAPTCHA and reCAPTCHA Mailhide. It generates HTML to let you display reCAPTCHA on your website, and to submit reCAPTCHA attempts to the reCAPTCHA server.
 
@@ -14,22 +14,22 @@ It has all of the features of recaptcha-client 1.0.6, plus the following new one
 - Code tidying.
 
 
-## Installation
+# Installation
 
-# Install:
+## Install:
 
     $ git clone git://github.com/dave-gallagher/recaptcha-client-1.0.6-ssl.git
     $ cd .../recaptcha-client-1.0.6-ssl
     $ sudo python setup.py install
 
-# Test Installation:
+## Test Installation:
 
     $ python
     >>> from recaptcha.client.captcha import displayhtml, submit
     >>> from recaptcha.client.mailhide import ashtml
     >>> quit()
 
-# Uninstallation:
+## Uninstallation:
     
     $ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
     <path_to_python>.../site-packages
@@ -37,4 +37,4 @@ It has all of the features of recaptcha-client 1.0.6, plus the following new one
     $ sudo rm -r recaptcha_client-1.0.6_ssl*.egg
 
 
-## Usage
+# Usage
