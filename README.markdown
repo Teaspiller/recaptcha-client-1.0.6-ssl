@@ -14,7 +14,7 @@ This code is forked from the original Python [recaptcha-client 1.0.6](http://pyp
 - Lots of comments.
 - Code tidying.
 
-This code falls under its original MIT/X11 license.
+This code falls under its original MIT/X11 license. The author of this fork is not associated or affiliated with reCAPTCHA in any way.
 
 More information about reCAPTCHA and reCAPTCHA Mailhide: http://www.google.com/recaptcha
 
