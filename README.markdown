@@ -48,9 +48,10 @@ Make sure to uninstall any old versions of recaptcha-client first.
 - Register for a free key here: http://www.google.com/recaptcha/whyrecaptcha
 - Note: A *global key* is not needed for local development (127.0.0.1).
 
-#### Generate reCAPTCHA HTML:
 
-Place the generated HTML inside your <form> object, and render it to a webpage as a HTTP Response.
+### Generate reCAPTCHA HTML:
+
+Place the generated HTML inside your form object, and render it to a webpage as a HTTP Response.
 
     >>> from recaptcha.client.captcha import displayhtml
     >>> PUBLIC_KEY = "YOUR_PUBLIC_RECAPTCHA_KEY"
@@ -58,7 +59,7 @@ Place the generated HTML inside your <form> object, and render it to a webpage a
     >>> print html
     <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=YOUR_PUBLIC_RECAPTCHA_KEY"></script><noscript>  <iframe src="https://www.google.com/recaptcha/api/noscript?k=YOUR_PUBLIC_RECAPTCHA_KEY" height="300" width="500" frameborder="0"></iframe><br />  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' /></noscript>
 
-#### Validate:
+### Validate:
 
 After receiving an HTTP POST Request from a submitted form, extract 
 
