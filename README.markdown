@@ -44,14 +44,12 @@ Make sure to uninstall any old versions of recaptcha-client first.
     >>> import recaptcha
     >>> recaptcha
     <module 'recaptcha' from 'recaptcha/__init__.pyc'>
-    >>> quit()
 
 ### Uninstallation: ###
     
     $ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
     <path_to_python>.../site-packages
-    $ cd <path_to_python>.../site-packages
-    $ sudo rm -r recaptcha_client-1.0.6_ssl*.egg
+    $ sudo rm -r <path_to_python>.../site-packages/recaptcha_client-1.0.6_ssl*.egg
 
 # reCAPTCHA Usage #
 
@@ -62,11 +60,12 @@ Make sure to uninstall any old versions of recaptcha-client first.
 
 ### Generate reCAPTCHA HTML: ###
 
-Place the generated HTML inside your form object, and render it to a webpage as a HTTP Response.
+Place the generated HTML inside your form code, and render it to a webpage as a HTTP Response.
 
     >>> from recaptcha.client.captcha import displayhtml
     >>> 
     >>> PUBLIC_KEY = "YOUR_PUBLIC_RECAPTCHA_KEY"
+    >>> 
     >>> html = displayhtml(public_key=PUBLIC_KEY, use_ssl=True, error=None)
     >>> print html
     <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=YOUR_PUBLIC_RECAPTCHA_KEY"></script><noscript>  <iframe src="https://www.google.com/recaptcha/api/noscript?k=YOUR_PUBLIC_RECAPTCHA_KEY" height="300" width="500" frameborder="0"></iframe><br />  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' /></noscript>
