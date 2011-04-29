@@ -5,7 +5,7 @@
 - **reCAPTCHA** is generally used inside HTML forms. Users must solve a reCAPTCHA to submit a form successfully.
 - **reCAPTCHA Mailhide** masks email addresses, and requires a user to solve a reCAPTCHA to reveal the full email address.
 
-This code is forked from the original Python **recaptcha-client 1.0.6** (http://pypi.python.org/pypi/recaptcha-client), and is fully backwards compatible with it (no code changes are necessary to implement). It has all of the features of *recaptcha-client 1.0.6*, plus the following new ones:
+This code is forked from the original Python [recaptcha-client 1.0.6](http://pypi.python.org/pypi/recaptcha-client "**recaptcha-client 1.0.6**"), and is fully backwards compatible with it (no code changes are necessary to implement). It has all of the features of *recaptcha-client 1.0.6*, plus the following new ones:
 
 - SSL support for submit() in captcha.py.
 - SSL support for asurl() and ashtml() in mailhide.py.
