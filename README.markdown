@@ -67,6 +67,7 @@ Make sure to uninstall any old versions of recaptcha-client first.
 Place the generated HTML inside your form object, and render it to a webpage as a HTTP Response.
 
     >>> from recaptcha.client.captcha import displayhtml
+    >>> 
     >>> PUBLIC_KEY = "YOUR_PUBLIC_RECAPTCHA_KEY"
     >>> html = displayhtml(public_key=PUBLIC_KEY, use_ssl=True, error=None)
     >>> print html
@@ -77,10 +78,12 @@ Place the generated HTML inside your form object, and render it to a webpage as 
 After receiving an HTTP POST Request from a submitted form, extract both *recaptcha_challenge_field* and *recaptcha_response_field* from the POST. You should also extract the clients IP address (see your API/webserver for details on how to do this).
 
     >>> from recaptcha.client.captcha import submit
-    >>> recaptcha_challenge_field = http_request_post.get("recaptcha_challenge_field", None)             # Psuedo-code
-    >>> recaptcha_response_field = http_request_post.get("recaptcha_response_field", None)   # Psuedo-code
+    >>> 
+    >>> recaptcha_challenge_field = http_request_post.get("recaptcha_challenge_field", None)   # Psuedo-code
+    >>> recaptcha_response_field = http_request_post.get("recaptcha_response_field", None)     # Psuedo-code
     >>> client_ip_address = ...
     >>> PRIVATE_KEY = "YOUR_PRIVATE_RECAPTCHA_KEY"
+    >>> 
     >>> recaptcha_response = submit(recaptcha_challenge_field, recaptcha_response_field, PRIVATE_KEY, client_ip_address, use_ssl=True)
     >>> if recaptcha_response.is_valid:
     ...    print "reCAPTCHA was solved successfully"
