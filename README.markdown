@@ -16,20 +16,20 @@ It has all of the features of recaptcha-client 1.0.6, plus the following new one
 
 # Installation
 
-## Install:
+### Install:
 
     $ git clone git://github.com/dave-gallagher/recaptcha-client-1.0.6-ssl.git
     $ cd .../recaptcha-client-1.0.6-ssl
     $ sudo python setup.py install
 
-## Test Installation:
+### Test Installation:
 
     $ python
     >>> from recaptcha.client.captcha import displayhtml, submit
     >>> from recaptcha.client.mailhide import ashtml
     >>> quit()
 
-## Uninstallation:
+#### Uninstallation:
     
     $ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
     <path_to_python>.../site-packages
