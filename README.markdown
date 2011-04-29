@@ -53,14 +53,12 @@ Make sure to uninstall any old versions of recaptcha-client first.
     $ cd <path_to_python>.../site-packages
     $ sudo rm -r recaptcha_client-1.0.6_ssl*.egg
 
-
 # reCAPTCHA Usage #
 
 - You must have both a Public and Private **reCAPTCHA** API Key.
 - These keys are different than **reCAPTCHA Mailhide** API Keys.
 - Register for free keys here: http://www.google.com/recaptcha/whyrecaptcha
 - Note: A *global key* is not needed for local development (127.0.0.1).
-
 
 ### Generate reCAPTCHA HTML: ###
 
@@ -89,21 +87,27 @@ After receiving an HTTP POST Request from a submitted form, extract both *recapt
     ...    print "reCAPTCHA was solved successfully"
     ... else:
     ...    print "reCAPTCHA failed with error: %s" % recaptcha_response.error_code
-    >>> 
-
-
-
 
 # reCAPTCHA Mailhide Usage #
 
-- You MUST install 
 - You must have both a Public and Private **reCAPTCHA Mailhide** API Key.
 - These keys are different than **reCAPTCHA** API Keys.
 - Register for a free key here: http://www.google.com/recaptcha/mailhide/
+- You MUST install Python's Crypto library to use this. See *Installation* for details.
 
+### Generate reCAPTCHA Mailhide HTML: ###
 
+Place this HTML inside your webpage. The email address will be abridged. To reveal the full email address, the user clicks on a link to open a pop-up window containing a reCAPTCHA. After solving the reCAPTCHA, the full email address is displayed.
 
-
+    >>> from recaptcha.client.mailhide import ashtml
+    >>> 
+    >>> EMAIL = "susan_smith@example.com"
+    >>> PUBLIC_MAILHIDE_KEY = "YOUR_PUBLIC_RECAPTCHA_MAILHIDE_KEY"
+    >>> PRIVATE_MAILHIDE_KEY = "YOUR_PRIVATE_RECAPTCHA_MAILHIDE_KEY"
+    >>> 
+    >>> html = ashtml(EMAIL, PUBLIC_MAILHIDE_KEY, PRIVATE_MAILHIDE_KEY, use_ssl=True)
+    >>> print html
+    susa<a href="https://www.google.com/recaptcha/mailhide/d?k=XXXXXXXXXXXXXXXXXXXXXXXXXX&amp;c=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY" onclick="window.open('https://www.google.com/recaptcha/mailhide/d?k=XXXXXXXXXXXXXXXXXXXXXXXXXX&amp;c=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@example.com
 
 
 
