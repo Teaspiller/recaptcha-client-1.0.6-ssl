@@ -82,7 +82,7 @@ After receiving an HTTP POST Request from a submitted form, extract both *recapt
     >>> client_ip_address = ...
     >>> PRIVATE_KEY = "YOUR_PRIVATE_RECAPTCHA_KEY"
     >>> 
-    >>> recaptcha_response = submit(recaptcha_challenge_field, recaptcha_response_field, PRIVATE_KEY, client_ip_address, use_ssl=True)
+    >>> recaptcha_response = submit(recaptcha_challenge_field, recaptcha_response_field, PRIVATE_KEY, client_ip_address, use_ssl=True, timeout_seconds=60)
     >>> if recaptcha_response.is_valid:
     ...    print "reCAPTCHA was solved successfully"
     ... else:
