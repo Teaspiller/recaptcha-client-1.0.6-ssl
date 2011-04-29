@@ -16,6 +16,8 @@ It has all of the features of *recaptcha-client 1.0.6*, plus the following new o
 - Lots of comments.
 - Code tidying.
 
+This code falls under its original MIT/X11 license.
+
 More information about reCAPTCHA and reCAPTCHA Mailhide: http://www.google.com/recaptcha
 
 # Installation #
