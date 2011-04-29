@@ -91,8 +91,8 @@ After receiving an HTTP POST Request from a submitted form, extract both *recapt
 
 - You must have both a Public and Private **reCAPTCHA Mailhide** API Key.
 - These keys are different than **reCAPTCHA** API Keys.
-- Register for a free key here: http://www.google.com/recaptcha/mailhide/
-- You MUST install Python's Crypto library to use this. See *Installation* for details.
+- Register for a free keys here: http://www.google.com/recaptcha/mailhide/
+- You MUST install Python's Crypto library to use this. Otherwise an exception will be raised. See *Installation* for details.
 
 ### Generate reCAPTCHA Mailhide HTML: ###
 
