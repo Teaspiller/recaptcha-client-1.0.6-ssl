@@ -72,7 +72,7 @@ Place the generated HTML inside your form code, and render it to a webpage as a 
 
 ### Validate: ###
 
-After receiving an HTTP POST Request from a submitted form, extract both *recaptcha_challenge_field* and *recaptcha_response_field* from the POST. You should also extract the clients IP address (see your API/webserver for details on how to do this).
+After receiving an HTTP POST Request from a submitted form, extract both **recaptcha_challenge_field** and **recaptcha_response_field** from the POST. You should also extract the clients IP address (see your API/webserver for details on how to do this).
 
     >>> from recaptcha.client.captcha import submit
     >>> 
@@ -92,7 +92,7 @@ After receiving an HTTP POST Request from a submitted form, extract both *recapt
 - You must have both a Public and Private **reCAPTCHA Mailhide** API Key.
 - These keys are different than **reCAPTCHA** API Keys.
 - Register for a free keys here: http://www.google.com/recaptcha/mailhide/
-- You MUST install Python's Crypto library to use this. Otherwise an exception will be raised. See *Installation* for details.
+- You MUST install Python's Crypto library to use this. Otherwise an exception will be raised. See **Installation** for details.
 
 ### Generate reCAPTCHA Mailhide HTML: ###
 
