@@ -1,8 +1,11 @@
-# Overview
+# Overview #
 
-**recaptcha-client-1.0.6-ssl** is a Python 2.x module that interfaces with **reCAPTCHA** and **reCAPTCHA Mailhide**. It generates HTML to let you display reCAPTCHA on your website, and to submit reCAPTCHA attempts to the reCAPTCHA server.
+**recaptcha-client-1.0.6-ssl** is a Python 2.x module that interfaces with reCAPTCHA and reCAPTCHA Mailhide. It generates HTML to let you display reCAPTCHA on your website, and to submit reCAPTCHA attempts to the reCAPTCHA server.
 
-It's forked from the original Python *recaptcha-client 1.0.6*, and is fully backwards compatible with it (no code changes are necessary to implement). The original client is located here: http://pypi.python.org/pypi/recaptcha-client
+- **reCAPTCHA** is generally used inside HTML forms. Users must successfully solve a reCAPTCHA to submit a form successfully.
+- **reCAPTCHA Mailhide** masks email addresses, and requires a user to solve a reCAPTCHA to reveal the full email address.
+
+This code is forked from the original Python *recaptcha-client 1.0.6*, and is fully backwards compatible with it (no code changes are necessary to implement). The original client is located here: http://pypi.python.org/pypi/recaptcha-client
 
 It has all of the features of *recaptcha-client 1.0.6*, plus the following new ones:
 
@@ -16,9 +19,14 @@ It has all of the features of *recaptcha-client 1.0.6*, plus the following new o
 More information about reCAPTCHA and reCAPTCHA Mailhide: http://www.google.com/recaptcha
 
 
-# Installation
+# Installation #
 
-### Download and Install:
+### Dependencies: ###
+
+If you 
+
+
+### Download and Install: ###
 
 Make sure to uninstall any old versions of recaptcha-client first.
 
@@ -26,14 +34,14 @@ Make sure to uninstall any old versions of recaptcha-client first.
     $ cd .../recaptcha-client-1.0.6-ssl
     $ sudo python setup.py install
 
-### Test Installation:
+### Test Installation: ###
 
     $ python
     >>> from recaptcha.client.captcha import displayhtml, submit
     >>> from recaptcha.client.mailhide import ashtml
     >>> quit()
 
-### Uninstallation:
+### Uninstallation: ###
     
     $ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
     <path_to_python>.../site-packages
@@ -41,15 +49,15 @@ Make sure to uninstall any old versions of recaptcha-client first.
     $ sudo rm -r recaptcha_client-1.0.6_ssl*.egg
 
 
-# reCAPTCHA Usage
+# reCAPTCHA Usage #
 
 - You must have both a Public and Private **reCAPTCHA** API Key.
 - These keys are different than **reCAPTCHA Mailhide** API Keys.
-- Register for a free key here: http://www.google.com/recaptcha/whyrecaptcha
+- Register for free keys here: http://www.google.com/recaptcha/whyrecaptcha
 - Note: A *global key* is not needed for local development (127.0.0.1).
 
 
-### Generate reCAPTCHA HTML:
+### Generate reCAPTCHA HTML: ###
 
 Place the generated HTML inside your form object, and render it to a webpage as a HTTP Response.
 
@@ -59,7 +67,7 @@ Place the generated HTML inside your form object, and render it to a webpage as 
     >>> print html
     <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=YOUR_PUBLIC_RECAPTCHA_KEY"></script><noscript>  <iframe src="https://www.google.com/recaptcha/api/noscript?k=YOUR_PUBLIC_RECAPTCHA_KEY" height="300" width="500" frameborder="0"></iframe><br />  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' /></noscript>
 
-### Validate:
+### Validate: ###
 
 After receiving an HTTP POST Request from a submitted form, extract 
 
