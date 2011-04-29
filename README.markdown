@@ -2,7 +2,7 @@
 
 **recaptcha-client-1.0.6-ssl** is a Python 2.x module that interfaces with reCAPTCHA and reCAPTCHA Mailhide. It generates HTML to let you display reCAPTCHA on your website, and to submit reCAPTCHA attempts to the reCAPTCHA server.
 
-- **reCAPTCHA** is generally used inside HTML forms. Users must successfully solve a reCAPTCHA to submit a form successfully.
+- **reCAPTCHA** is generally used inside HTML forms. Users must solve a reCAPTCHA to submit a form successfully.
 - **reCAPTCHA Mailhide** masks email addresses, and requires a user to solve a reCAPTCHA to reveal the full email address.
 
 This code is forked from the original Python *recaptcha-client 1.0.6*, and is fully backwards compatible with it (no code changes are necessary to implement). The original client is located here: http://pypi.python.org/pypi/recaptcha-client
@@ -18,13 +18,17 @@ It has all of the features of *recaptcha-client 1.0.6*, plus the following new o
 
 More information about reCAPTCHA and reCAPTCHA Mailhide: http://www.google.com/recaptcha
 
-
 # Installation #
 
 ### Dependencies: ###
 
-If you 
+If you wish to use **reCAPTCHA Mailhide** (recaptcha.client.mailhide), you must also install the Python Crypto library. This is not required if you only use **reCAPTCHA** (recaptcha.client.captcha). The easiest way to install this is with pip:
 
+    $ sudo pip install pycrypto
+    $ python
+    >>> import Crypto
+    >>> Crypto
+    <module 'Crypto' from '.../site-packages/Crypto/__init__.pyc'>
 
 ### Download and Install: ###
 
@@ -37,8 +41,9 @@ Make sure to uninstall any old versions of recaptcha-client first.
 ### Test Installation: ###
 
     $ python
-    >>> from recaptcha.client.captcha import displayhtml, submit
-    >>> from recaptcha.client.mailhide import ashtml
+    >>> import recaptcha
+    >>> recaptcha
+    <module 'recaptcha' from 'recaptcha/__init__.pyc'>
     >>> quit()
 
 ### Uninstallation: ###
