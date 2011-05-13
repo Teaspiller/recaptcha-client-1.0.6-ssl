@@ -210,8 +210,8 @@ def submit(recaptcha_challenge_field, recaptcha_response_field, private_key, rem
 		error = "urllib2.URLError exception was raised: %s" % e
 		return RecaptchaResponse(is_valid=False, error_code=error)
 	
-	return_values = http_response.read().splitlines();
-	http_response.close();
+	return_values = http_response.read().splitlines()
+	http_response.close()
 	
 	return_code = return_values[0]
 	if (return_code == "true"):
