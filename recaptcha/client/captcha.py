@@ -100,7 +100,7 @@ def displayhtml(public_key, use_ssl=False, error=None):
 	else:
 		server = API_SERVER
 	
-	url_values = {
+	html_values = {
 		'ApiServer':  server, 
 		'PublicKey':  public_key, 
 		'ErrorParam': error_param, 
@@ -111,7 +111,7 @@ def displayhtml(public_key, use_ssl=False, error=None):
 			"""  <iframe src="%(ApiServer)s/noscript?k=%(PublicKey)s%(ErrorParam)s" height="300" width="500" frameborder="0"></iframe><br />""" \
 			"""  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>""" \
 			"""  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />""" \
-			"""</noscript>""" % url_values
+			"""</noscript>""" % html_values
 	
 	return html
 
