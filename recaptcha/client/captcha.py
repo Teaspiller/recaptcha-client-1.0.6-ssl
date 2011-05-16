@@ -100,15 +100,18 @@ def displayhtml(public_key, use_ssl=False, error=None):
 	else:
 		server = API_SERVER
 	
+	url_values = {
+		'ApiServer':  server, 
+		'PublicKey':  public_key, 
+		'ErrorParam': error_param, 
+	}
+	
 	html = 	"""<script type="text/javascript" src="%(ApiServer)s/challenge?k=%(PublicKey)s%(ErrorParam)s"></script>""" \
 			"""<noscript>""" \
 			"""  <iframe src="%(ApiServer)s/noscript?k=%(PublicKey)s%(ErrorParam)s" height="300" width="500" frameborder="0"></iframe><br />""" \
 			"""  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>""" \
 			"""  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />""" \
-			"""</noscript>""" % { 	'ApiServer':  server, 
-									'PublicKey':  public_key, 
-									'ErrorParam': error_param,
-									}
+			"""</noscript>""" % url_values
 	
 	return html
 
@@ -190,14 +193,16 @@ def submit(recaptcha_challenge_field, recaptcha_response_field, private_key, rem
 		return s
 	
 	
-	params 	= urllib.urlencode ({
-				'privatekey': encode_if_necessary(private_key),
-				'remoteip' :  encode_if_necessary(remoteip),
-				'challenge':  encode_if_necessary(recaptcha_challenge_field),
-				'response' :  encode_if_necessary(recaptcha_response_field),
-			})
+	post_data = {
+		'privatekey': encode_if_necessary(private_key),
+		'remoteip' :  encode_if_necessary(remoteip),
+		'challenge':  encode_if_necessary(recaptcha_challenge_field),
+		'response' :  encode_if_necessary(recaptcha_response_field),
+	}
 	
-	request = urllib2.Request (
+	params = urllib.urlencode(post_data)
+	
+	request = urllib2.Request(
 				url		= "%s/verify" % server,
 				data 	= params,
 				headers = {"Content-type":"application/x-www-form-urlencoded", "User-agent":"reCAPTCHA Python"},
